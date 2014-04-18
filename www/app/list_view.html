@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en_US" xml:lang="en_US">
+<!--
+ * Created on 2014-3-25
+ *
+ * To change the template for this generated file go to
+ * Window - Preferences - PHPeclipse - PHP - Code Templates
+-->
+ <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>123456</title>
+
+<link href="styles/jquery.mobile.structure-1.3.2.css" charset="utf-8" rel="stylesheet" type="text/css"/>
+<link href="styles/jquery.mobile-1.4.2.min.css" charset="utf-8" rel="stylesheet" type="text/css"/>
+
+<script src="scripts/jquery.js" charset="utf-8" type="text/javascript"></script>
+<script src="scripts/jquery.mobile-1.4.2.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+var myScroll,
+	pullDownEl, pullDownOffset,
+	pullUpEl, pullUpOffset,
+	generatedCount = 0;
+
+function pullDownAction () {
+	setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
+		var el, li, i;
+		el = document.getElementById('thelist');
+
+		for (i=0; i<3; i++) {
+			li = document.createElement('li');
+			li.innerText = 'Generated row ' + (++generatedCount);
+			el.insertBefore(li, el.childNodes[0]);
+		}
+		
+		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
+	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
+}
+
+function pullUpAction () {
+	setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
+		var el, li, i;
+		el = document.getElementById('thelist');
+
+		for (i=0; i<3; i++) {
+			li = document.createElement('li');
+			li.innerText = 'Generated row ' + (++generatedCount);
+			el.appendChild(li, el.childNodes[0]);
+		}
+		
+		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
+	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
+}
+
+function loaded() {
+	pullDownEl = document.getElementById('pullDown');
+	pullDownOffset = pullDownEl.offsetHeight;
+	pullUpEl = document.getElementById('pullUp');	
+	pullUpOffset = pullUpEl.offsetHeight;
+	
+	myScroll = new iScroll('wrapper', {
+		useTransition: true,
+		topOffset: pullDownOffset,
+		onRefresh: function () {
+			if (pullDownEl.className.match('loading')) {
+				pullDownEl.className = '';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
+			} else if (pullUpEl.className.match('loading')) {
+				pullUpEl.className = '';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Pull up to load more...';
+			}
+		},
+		onScrollMove: function () {
+			if (this.y > 5 && !pullDownEl.className.match('flip')) {
+				pullDownEl.className = 'flip';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Release to refresh...';
+				this.minScrollY = 0;
+			} else if (this.y < 5 && pullDownEl.className.match('flip')) {
+				pullDownEl.className = '';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
+				this.minScrollY = -pullDownOffset;
+			} else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+				pullUpEl.className = 'flip';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Release to refresh...';
+				this.maxScrollY = this.maxScrollY;
+			} else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
+				pullUpEl.className = '';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Pull up to load more...';
+				this.maxScrollY = pullUpOffset;
+			}
+		},
+		onScrollEnd: function () {
+			if (pullDownEl.className.match('flip')) {
+				pullDownEl.className = 'loading';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Loading...';				
+				pullDownAction();	// Execute custom function (ajax call?)
+			} else if (pullUpEl.className.match('flip')) {
+				pullUpEl.className = 'loading';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Loading...';				
+				pullUpAction();	// Execute custom function (ajax call?)
+			}
+		}
+	});
+	
+	setTimeout(function () { document.getElementById('wrapper').style.left = '0'; }, 800);
+}
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
+</script>
+
+
+</head>
+<body>
+
+
+<div data-url="demo-page" data-role="page" id="demo-page" data-theme="d">
+    <div data-role="header" data-theme="b">
+<h6>鍝佺墝鍥�<a href="index.html"><img alt="" src="images/logo_text.png" align="top" width="60px" heigt="10px" /></a></h6>
+
+        <a href="#left-panel" data-theme="d" data-icon="arrow-r" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc">Open left panel</a>
+        <a href="#right-panel" data-theme="d" data-icon="arrow-l" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc">Open right panel</a>
+    </div><!-- /header -->
+
+    
+    <div data-role="content">
+        <p>鍒楄〃璇︽儏椤�</p>   
+<div id="wrapper">
+	<div id="scroller">
+		<div id="pullDown">
+			<span class="pullDownIcon"></span><span class="pullDownLabel">Pull down to refresh...</span>
+		</div>
+
+		<ul id="thelist">
+			<li>Pretty row 1</li>
+			<li>Pretty row 2</li>
+			<li>Pretty row 3</li>
+			<li>Pretty row 4</li>
+			<li>Pretty row 5</li>
+			<li>Pretty row 6</li>
+			<li>Pretty row 7</li>
+			<li>Pretty row 8</li>
+			<li>Pretty row 9</li>
+			<li>Pretty row 10</li>
+			<li>Pretty row 11</li>
+			<li>Pretty row 12</li>
+			<li>Pretty row 13</li>
+			<li>Pretty row 14</li>
+			<li>Pretty row 15</li>
+			<li>Pretty row 16</li>
+			<li>Pretty row 17</li>
+			<li>Pretty row 18</li>
+			<li>Pretty row 19</li>
+			<li>Pretty row 20</li>
+			<li>Pretty row 21</li>
+			<li>Pretty row 22</li>
+			<li>Pretty row 23</li>
+			<li>Pretty row 24</li>
+			<li>Pretty row 25</li>
+			<li>Pretty row 26</li>
+			<li>Pretty row 27</li>
+			<li>Pretty row 28</li>
+			<li>Pretty row 29</li>
+			<li>Pretty row 30</li>
+			<li>Pretty row 31</li>
+			<li>Pretty row 32</li>
+			<li>Pretty row 33</li>
+			<li>Pretty row 34</li>
+			<li>Pretty row 35</li>
+			<li>Pretty row 36</li>
+			<li>Pretty row 37</li>
+			<li>Pretty row 38</li>
+			<li>Pretty row 39</li>
+			<li>Pretty row 40</li>
+		</ul>
+		<div id="pullUp">
+			<span class="pullUpIcon"></span><span class="pullUpLabel">Pull up to refresh...</span>
+		</div>
+	</div>
+</div>
+    </div><!-- /content -->
+    
+    
+    <div data-role="panel" data-display="overlay" id="left-panel" data-theme="b">       
+        <ul data-role="listview" data-theme="d"  data-divider-theme="d" data-icon="false" data-global-nav="demos" class="jqm-list">
+            <li data-role="list-divider">jQuery Mobile Demos</li>
+			<li><a href="./">Home</a></li>
+            <li><a href="intro/">Introduction</a></li>
+            <li><a href="examples/">Demo Showcase</a></li>
+            <li><a href="faq/">Questions & Answers</a></li>
+			<li><a href="intro/rwd.html">Going Responsive</a></li>
+            <li data-role="list-divider">Widget reference</li>
+          <ul>
+        <a href="#" data-rel="close" data-role="button"  data-mini="true" data-inline="true" data-icon="delete" data-iconpos="right">Close</a>
+    </div><!-- /panel -->
+    
+    
+    <div data-role="panel" id="right-panel" data-display="push" data-position="right" data-theme="c">
+        <p>闈㈡澘鏄剧ず鐨勫彸渚�</p>
+        <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true" data-icon="delete" data-iconpos="right">Close</a>
+    </div><!-- /panel -->
+    
+    <div data-role="footer"  data-theme="b" class="ui-grid-d"  >
+
+<div class="ui-block-a">
+<div class="ui-bar ui-bar-e"style="heigt:20px"><a href="app/p-l.html"  >鍝�</a></div>
+</div>
+<div class="ui-block-b">
+<div class="ui-bar ui-bar-e"style="heigt:20px"><a href="app/p-r.html"  >鍏�</a></div>
+</div>
+
+<div class="ui-block-c">
+<div class="ui-bar ui-bar-e"style="heigt:20px"><a href="app/p-s.html"  >鎼�</a></div>
+</div>
+
+<div class="ui-block-d">
+<div class="ui-bar ui-bar-e"style="heigt:20px"><a href="app/p-shop.html">鍟�</a></div>
+</div>
+
+<div class="ui-block-e">
+<div class="ui-bar ui-bar-e"style="heigt:20px"><a href="app/p-i.html"  >鎴�</a></div>
+</div>
+
+</div><!-- /footer-->
+
+</div>
+
+</body>
+</html>

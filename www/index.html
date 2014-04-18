@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<!--
+ * Created on 2014-3-27 SH
+ *
+ * To change the template for this generated file go to
+ * Window - Preferences - PHPeclipse - PHP - Code Templates
+-->
+<html lang="zh-cn" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<title>品牌团app应用程序</title>
+<link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="./scrollbar.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="./bootstrap/cdn/html5shiv/3.7.0/html5shiv.min.js"></script>
+        <script src="./bootstrap/cdn/respond/1.3.0/respond.min.js"></script>
+    <![endif]-->
+<link href="./styles/jquery.mobile.structure-1.3.2.css" charset="utf-8" rel="stylesheet" type="text/css"/>
+<link href="./styles/jquery.mobile-1.4.2.min.css" charset="utf-8" rel="stylesheet" type="text/css"/>
+
+
+<script src="./scripts/jquery.mobile-1.4.2.min.js" charset="utf-8" type="text/javascript"></script>
+<script src="./scripts/jquery.js" charset="utf-8" type="text/javascript"></script>
+<script type="text/javascript" src="./scripts/iscroll/iscroll.js"></script>
+
+<script type="text/javascript">
+var myScroll;
+function loaded() {
+	myScroll = new iScroll('wrapper', { scrollbarClass: 'myScrollbar' });
+}
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+document.addEventListener('DOMContentLoaded', loaded, false);
+</script>
+
+<style type="text/css" media="all">
+body,ul,li {
+	padding:0;
+	margin:0;
+	border:0;
+}
+
+body {
+	font-size:12px;
+	-webkit-user-select:none;
+    -webkit-text-size-adjust:none;
+/* font-family:helvetica;*/
+}
+
+#header {
+	position:absolute;
+	top:0; left:0;
+	width:100%;
+/*	height:45px;
+    line-height:45px;*/
+	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #3D3539), color-stop(0.05, #3D3539), color-stop(1, #3D3539));
+	background-image:-moz-linear-gradient(top, #fe96c9, #d51875 5%, #7b0a2e);
+	background-image:-o-linear-gradient(top, #fe96c9, #d51875 5%, #7b0a2e);
+	padding:0;
+	color:#eee;
+	font-size:20px;
+
+}
+
+#header a {
+	color:#f3f3f3;
+	text-decoration:none;
+	font-weight:bold;
+	text-shadow:0 -1px 0 rgba(0,0,0,0.5);
+	text-align:left;
+}
+
+#header-content a {
+	color:#f3f3f3;
+	text-decoration:none;
+	font-weight:bold;
+	text-shadow:0 -1px 0 rgba(0,0,0,0.5);
+	text-align:center;
+}
+
+#header-right a{
+	color:#f3f3f3;
+	text-decoration:none;
+	font-weight:bold;
+	text-shadow:0 -1px 0 rgba(0,0,0,0.5);
+	text-align:right;
+}
+
+
+#footer {
+	position:absolute;
+	bottom:0; left:0;
+	width:100%;
+	height:40px;
+	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #999), color-stop(0.02, #666), color-stop(1, #222));
+	background-image:-moz-linear-gradient(top, #999, #666 2%, #222);
+	background-image:-o-linear-gradient(top, #999, #666 2%, #222);
+	padding:0;
+	border-top:1px solid #444;
+}
+
+#wrapper {
+	position:absolute; z-index:1;
+	top:30px; bottom:48px; left:0;
+	width:100%;
+	background:#555;
+	overflow:auto;
+}
+
+#scroller {
+	position:relative;
+/*	-webkit-touch-callout:none;*/
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+
+	float:left;
+	width:100%;
+	padding:0;
+}
+
+#scroller ul {
+	position:relative;
+	list-style:none;
+	padding:0;
+	margin:0;
+	width:100%;
+	text-align:left;
+}
+
+#scroller li {
+	padding:0 10px;
+	height:40px;
+	line-height:40px;
+	border-bottom:1px solid #ccc;
+	border-top:1px solid #fff;
+	background-color:#fafafa;
+	font-size:14px;
+}
+
+#scroller li > a {
+	display:block;
+}
+
+/*.col-md-4 .col-xs-6*/
+.col-md-4,.col-xs-6{
+position:relative;
+min-height:1px;
+
+}
+
+
+</style>
+</head>
+<body>
+<div id="header">
+<div class="ui-block-a"><a href="./app/p-cate.html"><img alt="前往品牌类目" src="./images/icon/tm_icon_tmall_normal.png" align="top"  /></a></div>
+<a id="header-content" href="./app/p-s.html"><img alt="左面板" src="./images/icon/icon-top/top-so.png" align="top" style="widht:130px" /></a>
+<a id="header-right" href="index.html"><img alt="右面板" src="./images/icon/tm_icon_tmall_normal.png" align="top"  /></a>
+</div>
+<div id="wrapper">
+	<div id="scroller"  class="container">
+ <div class="bs-example">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+        <div class="carousel-inner" style="height:100px">
+          <div class="item active">
+            <img src="./images/img-x/x-ddd-11.jpg" alt="First slide"><div class="carousel-caption"><a href="./app/ceshi.html" class="btn-primary " style="text-decoration:none;" role="button"><h1>品牌团</h1></a><p>品牌实力平台</p><p>品牌团线：400-600-800</p></div>
+      
+          </div>
+          <div class="item">
+            <img src="./images/img-x/x-ddd-2.jpg" alt="Second slide"><div class="carousel-caption"><a href="./app/ceshi.html" class="btn-primary " style="text-decoration:none;" role="button"><h1>品牌团</h1></a><p>品牌实力平台</p><p>品牌团线：400-600-800</p></div>
+       
+          </div>
+          <div class="item">
+            <img src="./images/img-x/x-ddd-3.jpg" alt="Third slide"><div class="carousel-caption"><a href="./app/ceshi.html" class="btn-primary " style="text-decoration:none;" role="button"><h1>品牌团</h1></a><p>品牌实力平台</p><p>品牌团线：400-600-800</p></div>
+      
+          </div>
+        </div>
+        <em class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </em>
+        <em class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </em>
+      </div>
+    </div><!-- /example -->
+
+		<ul id="thelist">
+		<div class="row">
+  <div class="col-xs-12">
+  <img alt="右面板" src="./images/img-x/x-ddd-4.jpg"  class="img-thumbnail" />
+  </div>
+   <div class="col-xs-3">
+  <img alt="右面板" src="./images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+   <div class="col-xs-3">
+  <img alt="右面板" src="./images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+   <div class="col-xs-3">
+  <img alt="右面板" src="./images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+   <div class="col-xs-3">
+  <img alt="右面板" src="./images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+  
+  <div class="col-xs-12">
+   <h6 class="img-thumbnail" >&nbsp;&nbsp;&nbsp;&nbsp;行业精选</h6>
+  </div>
+  <div class="col-xs-6 col-md-4" style="height: 50px">
+  <img alt="右面板" src="./images/x/x-ls.jpg"  class="img-thumbnail" />
+  </div>
+
+  <div class="col-xs-6 col-md-4" style="height: 50px">
+  <img alt="右面板" src="./images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+    <div class="col-xs-6 col-md-4" style="height: 50px">
+  <img alt="右面板" src="./images/x/x-ls.jpg"  class="img-thumbnail" />
+  </div>
+
+  <div class="col-xs-6 col-md-4" style="height: 50px">
+  <img alt="右面板" src="./images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+    <div class="col-xs-6 col-md-4" style="height: 50px">
+  <img alt="右面板" src="./images/x/x-ls.jpg"  class="img-thumbnail" />
+  </div>
+
+  <div class="col-xs-6 col-md-4" style="height: 50px">
+  <img alt="右面板" src="./images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+    <div class="col-xs-6 col-md-4" style="height: 50px">
+  <img alt="右面板" src="./images/x/x-ls.jpg"  class="img-thumbnail" />
+  </div>
+
+  <div class="col-xs-6 col-md-4" style="height: 50px">
+  <img alt="右面板" src="./images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+    <div class="col-xs-6 col-md-4" style="height: 50px">
+  <img alt="右面板" src="./images/x/x-ls.jpg"  class="img-thumbnail" />
+  </div>
+
+  <div class="col-xs-6 col-md-4" style="height: 50px">
+  <img alt="右面板" src="./images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+    <div class="col-xs-6 col-md-4" style="height: 50px">
+  <img alt="右面板" src="./images/x/x-ls.jpg"  class="img-thumbnail" />
+  </div>
+
+  <div class="col-xs-6 col-md-4" style="height: 50px">
+  <img alt="右面板" src="./images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+    <div class="col-xs-6 col-md-4" style="height: 50px">
+  <img alt="右面板" src="./images/x/x-ls.jpg"  class="img-thumbnail" />
+  </div>
+
+  <div class="col-xs-6 col-md-4" style="height: 50px">
+  <img alt="右面板" src="./images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+  
+
+  
+  <div class="col-xs-12">
+  <img alt="右面板" src="./images/img-x/x-lb-77.jpg"  class="img-thumbnail" />
+  </div>
+  
+  <div class="col-xs-12 ">
+  <img alt="右面板" src="./images/img-x/x-ddd7.jpg"  class="img-thumbnail" />
+  </div>
+  
+
+  <div class="col-xs-6 col-md-4">
+  <img alt="右面板" src="./images/x/x-ddf.jpg" class="img-thumbnail" />
+  </div>
+  
+  <div class="col-xs-6 col-md-4">
+  <img alt="右面板" src="./images/x/x-ddg.jpg" class="img-thumbnail" />
+  </div>
+  
+    <div class="col-xs-12">
+  <img alt="右面板" src="./images/img-x/x-ddd-jc.jpg"  class="img-thumbnail" />
+  </div>
+  
+    <div class="col-xs-12">
+  <img alt="右面板" src="./images/img-x/x-lb-44.jpg"  class="img-thumbnail" />
+  </div>
+  
+    <div class="col-xs-12">
+  <img alt="右面板" src="./images/img-x/x-ddd-6.jpg"  class="img-thumbnail" />
+  </div>
+      <div class="col-xs-12">
+  <img alt="右面板" src="./images/img-x/x-ddd-bbh.jpg"  class="img-thumbnail" />
+  </div>
+  
+    <div class="col-xs-12">
+  <img alt="右面板" src="./images/img-x/x-lb-11.jpg"  class="img-thumbnail" />
+  </div>
+  
+    <div class="col-xs-12">
+  <img alt="右面板" src="./images/img-x/x-lb-22.jpg"  class="img-thumbnail" />
+  </div>
+      <div class="col-xs-12">
+  <img alt="右面板" src="./images/img-x/x-lb-33.jpg"  class="img-thumbnail" />
+  </div>
+  
+    <div class="col-xs-12">
+  <img alt="右面板" src="./images/img-x/x-lb-55.jpg"  class="img-thumbnail" />
+  </div>
+        <div class="col-xs-12">
+  <img alt="右面板" src="./images/img-x/x-ddd-zs.jpg"  class="img-thumbnail" />
+  </div>
+  
+    <div class="col-xs-12">
+  <img alt="右面板" src="./images/img-x/x-lb-88.jpg"  class="img-thumbnail" />
+  </div>
+  
+     <div class="col-xs-12">
+  <img alt="右面板" src="./images/img-x/x-d-xn.jpg"  class="img-thumbnail" />
+  </div>
+     <div class="col-xs-12">
+  <img alt="右面板" src="./images/img-x/x-ddd-fz.jpg"  class="img-thumbnail" />
+  </div>
+  
+     <div class="col-xs-12">
+  <img alt="右面板" src="./images/img-x/x-ddd-cm.jpg"  class="img-thumbnail" />
+  </div>
+       <div class="col-xs-12">
+
+  </div>
+      <div class="col-xs-12">
+   <h6 class="img-thumbnail" >&nbsp;&nbsp;&nbsp;&nbsp;更多惊喜</h6>
+  </div>
+    <div class="col-xs-2">
+  <img alt="右面板" src="./images/x/x-ls.jpg"  class="img-thumbnail" />
+  </div>
+
+  <div class="col-xs-2">
+  <img alt="右面板" src="./images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+   <div class="col-xs-2">
+  <img alt="右面板" src="./images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+
+ <div class="col-xs-2">
+  <img alt="右面板" src="./images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+ <div class="col-xs-2">
+  <img alt="右面板" src="./images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+
+ <div class="col-xs-2">
+  <img alt="右面板" src="./images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+
+
+			</div>
+		</ul>
+	</div>
+</div>
+
+<div data-role="footer" id="footer" data-theme="b" class="ui-grid-d" >
+<div class="ui-block-a"><div class="ui-bar ui-bar-e"><a href="./app/p-cate.html"  title="首页" ><img style="width:15px" alt="" src="./images/icon/icon-d/icon_tab_home_nomal.png" /></a></div></div>
+<div class="ui-block-b"><div class="ui-bar ui-bar-e"><a href="./app/p-r.html" title="关注" ><img style="width:15px" alt="" src="./images/icon/icon-d/icon_tab_featured_selected.png" /></a></div></div>
+<div class="ui-block-c"><div class="ui-bar ui-bar-e"><a href="./app/p-s.html" title="搜索" ><img style="width:15px" alt="" src="./images/icon/icon-d/icon_tab_search_selected.png" /></a></div></div>
+<div class="ui-block-d"><div class="ui-bar ui-bar-e"><a href="./app/p-shop.html" title="商铺" ><img style="width:15px" alt="" src="./images/icon/icon-d/icon_tab_cart_selected.png" /></a></div></div>
+<div class="ui-block-e"><div class="ui-bar ui-bar-e"><a href="./app/p-i.html" title="我"><img style="width:15px" alt="" src="./images/icon/icon-d/icon_tab_profile_selected.png" /></a></div></div>
+</div><!-- /footer-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./bootstrap/js/bootstrap.js" charset="utf-8" type="text/javascript"></script>
+ <script language="javascript" type="text/javascript">
+// $(document).ready(function(){
+ // $("#ppg").click(function(){
+ // });
+//});
+
+    </script>
+<script  charset="utf-8" type="text/javascript">
+// $("a").click(function(event){
+ // event.preventDefault();
+// });
+</script>
+
+</body>
+</html>

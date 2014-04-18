@@ -1,0 +1,23 @@
+$.ajax({
+					url:"http://www.maiduoduo.cc/testphone_getItem",
+					data:{},
+					type: "get", //数据发送方式    
+					dataType: "jsonp", //接受数据格式
+					async:false,
+					jsonp:"callback",
+					jsonpCallback:"getItem",
+					success: function (data) {
+						console.log( data );
+						$("#itemcontent").html( data );
+					}
+				});
+
+
+$a = array(  
+    'pic_url'=>'http://gd2.alicdn.com/bao/uploaded/i2/T1pEfPFvtbXXXXXXXX_!!0-item_pic.jpg',  
+    'price'=>'6000',  
+    'title'=>'ranzukiy'
+);  
+$result = json_encode($a);  
+echo $_GET['callback'].'('.$result.')'; 
+exit;
