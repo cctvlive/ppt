@@ -1,0 +1,336 @@
+<div data-role="page" class="jqm-demos" id="panel-fixed-page1" data-title="Panel fixed positioning" data-url="panel-fixed-page1">
+    <div data-role="header" data-position="fixed">
+        <h1>Fixed header</h1>
+        <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+        <a href="#add-form" data-icon="gear" data-iconpos="notext">Add</a>
+    </div><!-- /header -->
+    <div role="main" class="ui-content jqm-content jqm-fullwidth">
+        <h1>Panel fixed positioning</h1>
+        <p>This is a typical page that has two buttons in the header bar that open panels. The left panel has the push display mode. The right panel opens as overlay. For both panels we set <code>data-position-fixed="true"</code>. We also set position fixed for the header and footer on this page.</p>
+        <p>The left panel contains a long menu to demonstrate that the framework will check the panel contents height and unfixes the panel so its content can be scrolled. In the right panel there is a short form that shows the fixed positioning.</p>
+        <div data-demo-html="#panel-fixed-page1"></div><!--/demo-html -->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <a href="../" data-rel="back" data-ajax="false" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>We made the page a bit longer because you only see the panel fixed positioning if you can scroll the page :-)</p>
+    </div><!-- /content -->
+    <div data-role="footer" data-position="fixed">
+        <h4>Fixed footer</h4>
+    </div><!-- /footer -->
+    <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="b" id="nav-panel">
+        <ul data-role="listview">
+            <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
+                <li><a href="#panel-fixed-page2">Accordion</a></li>
+                <li><a href="#panel-fixed-page2">Ajax Navigation</a></li>
+                <li><a href="#panel-fixed-page2">Autocomplete</a></li>
+                <li><a href="#panel-fixed-page2">Buttons</a></li>
+                <li><a href="#panel-fixed-page2">Checkboxes</a></li>
+                <li><a href="#panel-fixed-page2">Collapsibles</a></li>
+                <li><a href="#panel-fixed-page2">Controlgroup</a></li>
+                <li><a href="#panel-fixed-page2">Dialogs</a></li>
+                <li><a href="#panel-fixed-page2">Fixed toolbars</a></li>
+                <li><a href="#panel-fixed-page2">Flip switch toggle</a></li>
+                <li><a href="#panel-fixed-page2">Footer toolbar</a></li>
+                <li><a href="#panel-fixed-page2">Form elements</a></li>
+                <li><a href="#panel-fixed-page2">Grids</a></li>
+                <li><a href="#panel-fixed-page2">Header toolbar</a></li>
+                <li><a href="#panel-fixed-page2">Icons</a></li>
+                <li><a href="#panel-fixed-page2">Links</a></li>
+                <li><a href="#panel-fixed-page2">Listviews</a></li>
+                <li><a href="#panel-fixed-page2">Loader overlay</a></li>
+                <li><a href="#panel-fixed-page2">Navbar</a></li>
+                <li><a href="#panel-fixed-page2">Navbar, persistent</a></li>
+                <li><a href="#panel-fixed-page2">Pages</a></li>
+                <li><a href="#panel-fixed-page2">New</a></li>
+                <li><a href="#panel-fixed-page2">Popup</a></li>
+                <li><a href="#panel-fixed-page2">Radio buttons</a></li>
+                <li><a href="#panel-fixed-page2">Select</a></li>
+                <li><a href="#panel-fixed-page2">Slider, single</a></li>
+                <li><a href="#panel-fixed-page2">New</a></li>
+                <li><a href="#panel-fixed-page2">New</a></li>
+                <li><a href="#panel-fixed-page2">New</a></li>
+                <li><a href="#panel-fixed-page2">Text inputs & textarea</a></li>
+                <li><a href="#panel-fixed-page2">Transitions</a></li>
+        </ul>
+    </div><!-- /panel -->
+    <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
+        <form class="userform">
+            <h2>Login</h2>
+            <label for="name">Username:</label>
+            <input type="text" name="name" id="name" value="" data-clear-btn="true" data-mini="true">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" value="" data-clear-btn="true" autocomplete="off" data-mini="true">
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini">Cancel</a></div>
+                <div class="ui-block-b"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-mini">Save</a></div>
+            </div>
+        </form>
+    </div><!-- /panel -->
+</div>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<!--
+ * Created on 2014-3-27 SH
+ *
+ * To change the template for this generated file go to
+ * Window - Preferences - PHPeclipse - PHP - Code Templates
+-->
+<html lang="zh-cn" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<title>品牌团app应用程序</title>
+<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../scrollbar.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="../bootstrap/cdn/html5shiv/3.7.0/html5shiv.min.js"></script>
+        <script src="../bootstrap/cdn/respond/1.3.0/respond.min.js"></script>
+    <![endif]-->
+<link href="../styles/jquery.mobile.structure-1.3.2.css" charset="utf-8" rel="stylesheet" type="text/css"/>
+<link href="../styles/jquery.mobile-1.4.2.min.css" charset="utf-8" rel="stylesheet" type="text/css"/>
+
+
+<script src="../scripts/jquery.mobile-1.4.2.min.js" charset="utf-8" type="text/javascript"></script>
+<script type="text/javascript" src="../scripts/iscroll/iscroll.js"></script>
+
+<script type="text/javascript">
+var myScroll;
+function loaded() {
+	myScroll = new iScroll('wrapper', { scrollbarClass: 'myScrollbar' });
+}
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+document.addEventListener('DOMContentLoaded', loaded, false);
+</script>
+
+<style type="text/css" media="all">
+body,ul,li {
+	padding:0;
+	margin:0;
+	border:0;
+}
+
+body {
+	font-size:12px;
+	-webkit-user-select:none;
+    -webkit-text-size-adjust:none;
+/* font-family:helvetica;*/
+}
+
+#header {
+	position:absolute;
+	top:0; left:0;
+	width:100%;
+/*	height:45px;
+    line-height:45px;*/
+	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #3D3539), color-stop(0.05, #3D3539), color-stop(1, #3D3539));
+	background-image:-moz-linear-gradient(top, #fe96c9, #d51875 5%, #7b0a2e);
+	background-image:-o-linear-gradient(top, #fe96c9, #d51875 5%, #7b0a2e);
+	padding:0;
+	color:#eee;
+	font-size:20px;
+
+}
+
+#footer {
+	position:absolute;
+	bottom:0; left:0;
+	width:100%;
+	height:40px;
+	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #999), color-stop(0.02, #666), color-stop(1, #222));
+	background-image:-moz-linear-gradient(top, #999, #666 2%, #222);
+	background-image:-o-linear-gradient(top, #999, #666 2%, #222);
+	padding:0;
+	border-top:1px solid #444;
+}
+
+#wrapper {
+	position:absolute; z-index:1;
+	top:30px; bottom:48px; left:0;
+	width:100%;
+	background:#555;
+	overflow:auto;
+}
+
+#scroller {
+	position:relative;
+/*	-webkit-touch-callout:none;*/
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+
+	float:left;
+	width:100%;
+	padding:0;
+}
+
+#scroller ul {
+	position:relative;
+	list-style:none;
+	padding:0;
+	margin:0;
+	width:100%;
+	text-align:left;
+}
+
+#scroller li {
+	padding:0 10px;
+	height:40px;
+	line-height:40px;
+	border-bottom:1px solid #ccc;
+	border-top:1px solid #fff;
+	background-color:#fafafa;
+	font-size:14px;
+}
+
+#scroller li > a:link ,a:visited ,a:hover ,a:active{
+	display:block;
+	text-decoration:none;
+
+}
+
+	/*a:link{
+text-decoration:none;
+}
+a:visited{
+text-decoration:none;
+}
+a:hover{
+text-decoration:none;
+}
+a:active{
+text-decoration:none;
+}*/
+
+
+</style>
+</head>
+<body>
+	
+<div id="header">
+<h5 style="  margin-right: auto; margin-left: auto; padding-left: 130px; padding-right: 15px;">个人中心</h5>
+</div>
+<div id="wrapper">
+	<div id="scroller"  class="container">
+	<div class="bs-example">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+       <div class="carousel-inner" style="height:100px">
+	   <div class="item active">
+         <a><img alt="右面板" src="../images/img-x/x-ddd-2.jpg"   /></a>
+            <div class="carousel-caption">
+            <a href="./app/ceshi.html" class="btn-primary " style="text-decoration:none;" role="button">
+            </a>
+            <p><img alt="右面板" src="../images/img-x/x-ddd-2.jpg" class="img-circle" style="width: 50px; margin-top:30px; margin-right: 500px " />品牌团线：400-600-800</p>
+            <br /><br />
+            </div>
+          </div>
+          
+          </div>
+          </div>
+          </div>
+
+  <div class="col-xs-2 col-md-4">
+  <img alt="右面板" src="../images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+    <div class="col-xs-2 col-md-4">
+  <img alt="右面板" src="../images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+ <div class="col-xs-2 col-md-4">
+  <img alt="右面板" src="../images/x/x-ls.jpg"  class="img-thumbnail" />
+  </div>
+
+  <div class="col-xs-2 col-md-4">
+  <img alt="右面板" src="../images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+  <div class="col-xs-2 col-md-4">
+  <img alt="右面板" src="../images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+    <div class="col-xs-2 col-md-4">
+  <img alt="右面板" src="../images/x/x-ab.jpg"  class="img-thumbnail" />
+  </div>
+  
+<ul data-role="listview">
+　　	<li><a href="../app/orders.html">所有订单</a></li>
+　　	<li><a href="#commodity">商品收藏</a></li>
+	<li><a href="#coupon">我的优惠券</a></li>
+　　	<li><a href="#membershipcard">我的会员卡</a></li>
+	<li><a href="#paypal">支付宝</a></li>
+　　	<li><a href="#about">关于品牌团</a></li>
+
+</ul>
+
+
+
+	
+	</div>
+	<!-- Start of first page -->
+<div  data-role="panel" data-position-fixed="true" data-display="push" data-theme="b"  id="orders">
+
+	<div data-role="header">
+		<h1>Foo</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>I'm first in the source order so I'm shown as the page.</p>
+		<p>View internal page called <a href="#bar">bar</a></p>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+</div>
+ 
+
+
+<div data-role="footer" id="footer" data-theme="b" class="ui-grid-d" >
+<div class="ui-block-a"><div class="ui-bar ui-bar-e"><a href="../index.html"  title="首页" ><img style="width:15px" alt="" src="../images/icon/icon-d/icon_tab_home_selected.png" /></a></div></div>
+<div class="ui-block-b"><div class="ui-bar ui-bar-e"><a href="../app/p-r.html" title="关注" ><img style="width:15px" alt="" src="../images/icon/icon-d/icon_tab_featured_selected.png" /></a></div></div>
+<div class="ui-block-c"><div class="ui-bar ui-bar-e"><a href="../app/p-s.html" title="搜索" ><img style="width:15px" alt="" src="../images/icon/icon-d/icon_tab_search_selected.png" /></a></div></div>
+<div class="ui-block-d"><div class="ui-bar ui-bar-e"><a href="../app/shopcart.html" title="商铺" ><img style="width:15px" alt="" src="../images/icon/icon-d/icon_tab_cart_selected.png" /></a></div></div>
+<div class="ui-block-e"><div class="ui-bar ui-bar-e"><a href="../app/p-i.html" title="我"><img style="width:15px" alt="" src="../images/icon/icon-d/icon_tab_profile_normal.png" /></a></div></div>
+</div><!-- /footer-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="../scripts/jquery.js" charset="utf-8" type="text/javascript"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../bootstrap/js/bootstrap.js" charset="utf-8" type="text/javascript"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>瀑布流</title>
+<style type="text/css">
+#divFlow {margin:20px; border:solid 1px gray; background-color:white; position:relative;}
+.divFlowItem {border:solid 1px gray; background-color:#eff; position:absolute; left:-2000px;}
+</style>
+<script src="./scripts/jquery.js"></script>
+
+</head>
+<body style="background-color:#eee; overflow-y: scroll;">
+
+<div id="divFlow">
+
+</div>
+
+<script>
+
+// 超简单易懂瀑布流 by http://www.cnblogs.com/zjfree
+
+// 刷新瀑布流
+function resetFlow()
+{
+    var allWidth = $('#divFlow').width();
+    
+    var arr = [];
+    $('#divFlow>div').each(function(){
+        arr.push({el:this, w:$(this).width(), h:$(this).height()});
+    });
+    
+    var marginX = flowItemMargin;
+    var colNum = parseInt((allWidth - marginX) / (marginX + flowItemWidth));
+    colNum = Math.max(colNum, 1);
+    
+    marginX = parseInt((allWidth - colNum * flowItemWidth) / (colNum + 1));
+    marginX = Math.max(marginX, flowItemMargin);
+    
+    var marginY = parseInt(marginX / 2);
+    marginY = Math.max(marginY, flowItemMargin);
+    
+    var colHeight = [];
+    for (var i=0; i<colNum; i++)
+    {
+        colHeight[i] = 0;
+    }
+    
+    var j = 0;
+    while(true)
+    {
+        var min = colHeight[0];
+        var mini = 0;
+        for (var i=1; i<colNum; i++)
+        {
+            if (colHeight[i] < min)
+            {
+                mini = i;
+                min = colHeight[i];
+            }
+        }
+        
+        if (j == arr.length) break;
+        
+        arr[j].el.style.top = colHeight[mini] + marginY + 'px';
+        arr[j].el.style.left = marginX + (flowItemWidth + marginX) * mini + 'px';
+        colHeight[mini] += arr[j].h + marginY;
+        j++;
+    }
+    
+    var maxHeight = 0;
+    for (var i=0; i<colNum; i++)
+    {
+        maxHeight = Math.max(colHeight[i], maxHeight);
+    }
+    
+    maxHeight += marginY;
+    
+    $('#divFlow').css('height', maxHeight + 'px');
+}
+
+var flowItemWidth = 300;    // 单位宽度
+var flowItemMargin = 10;    // 单位间隔
+
+// 加载数据
+function add()
+{
+    for (var i=0; i<20; i++)
+    {
+        var div = document.createElement("div");
+        div.style.cssText = 'width:' + flowItemWidth + 'px;';
+        div.className = 'divFlowItem';
+        
+        // 加载时修改如下
+        div.innerHTML = 'hahah';
+        div.style.height = 50 + Math.round(Math.random() * 300) + 'px';
+        
+        $('#divFlow').append(div);
+    }
+    
+    resetFlow();
+}
+
+$(function (){
+    // 当窗口改变大小时刷新
+    $(window).resize(resetFlow);
+    
+    // 当滚动到最底部时加载新数据
+    $(window).scroll(function () {
+        if (($(window).height() + $(window).scrollTop()) > $('body').height()) {
+            add();
+        }
+    });
+    
+    add();
+});
+</script>
+
+</body></html>

@@ -18,28 +18,14 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="./bootstrap/cdn/html5shiv/3.7.0/html5shiv.min.js"></script>
-        <script src="./bootstrap/cdn/respond/1.3.0/respond.min.js"></script>
+        <script src="../bootstrap/cdn/html5shiv/3.7.0/html5shiv.min.js"></script>
+        <script src="../bootstrap/cdn/respond/1.3.0/respond.min.js"></script>
     <![endif]-->
 <link href="../styles/jquery.mobile.structure-1.3.2.css" charset="utf-8" rel="stylesheet" type="text/css"/>
 <link href="../styles/jquery.mobile-1.4.2.min.css" charset="utf-8" rel="stylesheet" type="text/css"/>
 
 
 <script src="../scripts/jquery.mobile-1.4.2.min.js" charset="utf-8" type="text/javascript"></script>
-
-<script type="text/javascript" src="../scripts/iscroll/iscroll.js"></script>
-
-<script type="text/javascript">
-var myScroll;
-function loaded() {
-	myScroll = new iScroll('wrapper', { scrollbarClass: 'myScrollbar' });
-}
-
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-document.addEventListener('DOMContentLoaded', loaded, false);
-</script>
-
-       
 <style type="text/css" media="all">
 body,ul,li {
 	padding:0;
@@ -89,82 +75,29 @@ body {
 	overflow:auto;
 }
 
-#scroller {
-	position:relative;
-/*	-webkit-touch-callout:none;*/
-	-webkit-tap-highlight-color:rgba(0,0,0,0);
-
-	float:left;
-	width:100%;
-	padding:0;
-}
-
-#scroller ul {
-	position:relative;
-	list-style:none;
-	padding:0;
-	margin:0;
-	width:100%;
-	text-align:left;
-}
-
-#scroller li {
-	padding:0 10px;
-	height:40px;
-	line-height:40px;
-	border-bottom:1px solid #ccc;
-	border-top:1px solid #fff;
-	background-color:#fafafa;
-	font-size:14px;
-}
-
-#scroller li > a:link ,a:visited ,a:hover ,a:active{
-	display:block;
-	text-decoration:none;
-
-}
-
-
 </style>
 </head>
 <body>
 <div id="header">
-	<h5 style="margin-right: auto; margin-left: auto; padding-left: 130px; padding-right: 15px;">品牌类目</h5></div>
+<h5 style="  margin-right: auto;margin-left: auto;padding-left: 130px;padding-right: 15px;">购物车</h5>
+</div>
 
-			<div  class="container">
-			<div id="wrapper">
-				<div id="scroller"  >
-														<div id="app">
-														<!-- <div class="row">	
-														   <div class="col-xs-12 col-sm-4"><a href="./ceshi.html" data-rel="dialog" data-transition="slidedown" ><img alt="右面板" src="../images/img-x/x-ddd-cm.jpg"  class="img-thumbnail" /></a></div>
-														</div> -->
-	
-														</div>
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<div id="wrapper" >
+<img style="margin-top:150px;margin-left:75px;" src="../images/shopcate/kakalib_start_anim_icon.png" />
+</div>
 
-					</div>
-			</div>
-			</div>
- 
 <div data-role="footer" id="footer" data-theme="b" class="ui-grid-d" >
 <div class="ui-block-a"><div class="ui-bar ui-bar-e"><a href="../index.html"  title="首页" ><img style="width:15px" alt="" src="../images/icon/icon-d/icon_tab_home_selected.png" /></a></div></div>
 <div class="ui-block-b"><div class="ui-bar ui-bar-e"><a href="../app/p-r.html" title="关注" ><img style="width:15px" alt="" src="../images/icon/icon-d/icon_tab_featured_selected.png" /></a></div></div>
 <div class="ui-block-c"><div class="ui-bar ui-bar-e"><a href="../app/p-s.html" title="搜索" ><img style="width:15px" alt="" src="../images/icon/icon-d/icon_tab_search_selected.png" /></a></div></div>
-<div class="ui-block-d"><div class="ui-bar ui-bar-e"><a href="../app/shopcart.html" title="商铺" ><img style="width:15px" alt="" src="../images/icon/icon-d/icon_tab_cart_selected.png" /></a></div></div>
+<div class="ui-block-d"><div class="ui-bar ui-bar-e"><a href="../app/shopcart.html" title="商铺" ><img style="width:15px" alt="" src="../images/icon/icon-d/icon_tab_cart_normal.png" /></a></div></div>
 <div class="ui-block-e"><div class="ui-bar ui-bar-e"><a href="../app/p-i.html" title="我"><img style="width:15px" alt="" src="../images/icon/icon-d/icon_tab_profile_selected.png" /></a></div></div>
 </div><!-- /footer-->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="../scripts/jquery.js" charset="utf-8" type="text/javascript"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../bootstrap/js/bootstrap.js" charset="utf-8" type="text/javascript"></script>
 
-<script charset="utf-8" type="text/javascript" src="../scripts/system/load_1.js"></script>
-<script type="text/javascript" src="../scripts/iscroll/iscroll.js"></script>
 
 </body>
 </html>
